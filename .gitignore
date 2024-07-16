@@ -1,0 +1,8 @@
+# Ignore everything
+*
+
+# Except the following files and directories
+!aws_products.xlsx
+!aws_products_log.xlsx
+!aws_parse.py
+!selenium_env/
