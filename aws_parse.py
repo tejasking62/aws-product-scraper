@@ -3,6 +3,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from openpyxl import load_workbook
 from openpyxl import Workbook
 import time
@@ -48,11 +50,29 @@ def collect_data(driver):
             
     return products_data
 
-base_url = "https://aws.amazon.com/products/?aws-products-all.sort-by=item.additionalFields.productNameLowercase&aws-products-all.sort-order=asc&awsf.re%3AInvent=*all&awsf.Free%20Tier%20Type=free-tier%23always-free%7Cfree-tier%2312-months-free%7Cfree-tier%23free-trial&awsf.tech-category=*all&awsm.page-aws-products-all="
-all_products_data = []
+base_url = "https://aws.amazon.com/products/?aws-products-all.sort-by=item.additionalFields.productNameLowercase&aws-products-all.sort-order=asc&awsf.re%3AInvent=*all&awsf.Free%20Tier%20Type=free-tier%23always-free%7Cfree-tier%2312-months-free%7Cfree-tier%23free-trial&awsf.tech-category=*all&awsm.page-aws-products-all=1"
+driver.get(base_url)
+time.sleep(5)
 
-for i in range(1, 8):
-    url = base_url + str(i)
+page_count = 1
+
+try:
+    container = driver.find_element(By.CSS_SELECTOR, 'div.m-cards-page-numbers.m-active')
+    page_links = container.find_elements(By.TAG_NAME, 'a')
+    for link in page_links:
+        try:
+            page_number = link.text
+            if page_number.isdigit():
+                page_count += 1
+        except ValueError:
+            continue
+except Exception as e:
+    print("Error")
+
+all_products_data = collect_data(driver)
+
+for i in range(2, page_count+1):
+    url = base_url[:-1] + str(i)
     # Open the webpage
     driver.get(url)
     time.sleep(5)
