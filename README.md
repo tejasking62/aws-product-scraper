@@ -4,10 +4,10 @@ This project uses Selenium to scrape product information from the AWS products p
 
 ## Features
 
-- Automates the process of opening a browser and navigating to the AWS products page.
-- Extracts product details such as category, name, description, and free tier type.
+- Uses **Selenium Webdriver** to automate the process of opening a browser and navigating to the AWS products page.
+- Extracts product details such as category, name, description, and free tier type with thorough inspection of page.
 - Iterates through multiple pages of results.
-- Saves the collected data to an Excel file with custom formatting.
+- Employs **Pandas** and **openpyxl** to save the collected data to an Excel file with custom formatting.
 
 ## Prerequisites
 
