@@ -99,24 +99,3 @@ ws.column_dimensions['E'].width = 20
 # Save the changes to the workbook
 wb.save(file_name)
 
-# CASE [Select Age Group]
-# WHEN "Under 5 pct" THEN [Under 5 pct]
-# WHEN "5-9 Pct" THEN [5-9 Pct]
-# WHEN "10-14 Pct" THEN [10-14 Pct]
-# WHEN "15-19 Pct" THEN [15-19 Pct]
-# WHEN "20-24 Pct" THEN [20-24 Pct]
-# WHEN "25-29 Pct" THEN [25-29 Pct]
-# WHEN "30-34 Pct" THEN [30-34 Pct]
-# WHEN "35-39 Pct" THEN [35-39 Pct]
-# WHEN "40-44 Pct" THEN [40-44 Pct]
-# WHEN "45-49 Pct" THEN [45-49 Pct]
-# WHEN "50-54 Pct" THEN [50-54 Pct]
-# WHEN "55-59 Pct" THEN [55-59 Pct]
-# WHEN "60-64 Pct" THEN [60-64 Pct]
-# WHEN "65-69 Pct" THEN [65-69 Pct]
-# WHEN "70-74 Pct" THEN [70-74 Pct]
-# WHEN "75-79 Pct" THEN [75-79 Pct]
-# WHEN "80-84 Pct" THEN [80-84 Pct]
-# WHEN "85+ Pct" THEN [85+ Pct]
-# END
-
